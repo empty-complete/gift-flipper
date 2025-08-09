@@ -1,0 +1,53 @@
+[project]
+name = "gift-flipper"
+version = "0.0.0"
+description = "Gift Flipper"
+requires-python = ">=3.10"
+readme = "README.md"
+
+# Здесь ставим все сервисы проекта
+[tool.uv.workspace]
+members = ["services/bot-gateway"]
+
+# Зависимости для разработки
+[dependency-groups]
+dev = [
+  "ruff>=0.5",
+  "mypy>=1.10",
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "types-requests>=2.32",
+  "pre-commit>=3.7",
+  "bot-gateway"
+]
+
+[tool.uv.sources]
+bot-gateway = { workspace = true }
+
+
+# Конфиг линтера ruff
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+exclude = ["infra/**", "docker/**"]
+lint.select = ["E", "F", "I", "B", "UP", "W"]
+lint.ignore = ["E501"]  # строки длиннее 100 не считаем ошибкой
+
+# Конфиг форматтера ruff
+[tool.ruff.format]
+quote-style = "double"
+
+# Настраиваем pytest
+[tool.pytest.ini_options]
+testpaths = ["tests", "services/bot-gateway/tests"]
+addopts = "-q" # quiet
+
+
+# Статическая проверка типов
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+strict_optional = true
+ignore_missing_imports = true
