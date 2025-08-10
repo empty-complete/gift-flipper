@@ -1,17 +1,21 @@
 [project]
 name = "bot_gateway"
-version = "0.0.0"
+version = "0.1.0"
 description = "UI Telegram bot gateway"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
+
+dependencies = [
+	"aiogram>=3.21.0",
+	"pydantic-settings>=2.10.1",
+	"httpx>=0.28.1",
+	"uvloop>=0.21.0"
+]
 
 [build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta" # PEP 517
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["bot_gateway*"]
-
-[tool.ruff]  # Наследуем стиль из корня, расширять не будем, просто ссылка
-extend = "../../pyproject.toml"  # Брать общие настройки ruff из корня

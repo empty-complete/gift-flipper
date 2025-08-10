@@ -39,4 +39,4 @@ ci: fmt lint type test
 
 # Очистка кешей и окружения
 clean:
-	@rm -rf .pytest_cache .mypy_cache .venv uv.lock
+	@rm -rf .pytest_cache .mypy_cache .ruff_cache .venv uv.lock

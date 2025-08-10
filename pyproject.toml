@@ -1,8 +1,8 @@
 [project]
 name = "gift-flipper"
-version = "0.0.0"
+version = "0.1.0"
 description = "Gift Flipper"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 readme = "README.md"
 
 # Здесь ставим все сервисы проекта
@@ -12,12 +12,12 @@ members = ["services/bot-gateway"]
 # Зависимости для разработки
 [dependency-groups]
 dev = [
-  "ruff>=0.5",
-  "mypy>=1.10",
-  "pytest>=8.0",
-  "pytest-asyncio>=0.23",
+  "ruff>=0.12.8",
+  "mypy>=1.17.1",
+  "pytest>=8.4.1",
+  "pytest-asyncio>=1.1.0",
   "types-requests>=2.32",
-  "pre-commit>=3.7",
+  "pre-commit>=4.3",
   "bot-gateway"
 ]
 
@@ -27,7 +27,7 @@ bot-gateway = { workspace = true }
 
 # Конфиг линтера ruff
 [tool.ruff]
-target-version = "py310"
+target-version = "py313"
 line-length = 100
 exclude = ["infra/**", "docker/**"]
 lint.select = ["E", "F", "I", "B", "UP", "W"]
@@ -39,13 +39,16 @@ quote-style = "double"
 
 # Настраиваем pytest
 [tool.pytest.ini_options]
-testpaths = ["tests", "services/bot-gateway/tests"]
+testpaths = [
+	"tests",
+	"services/bot-gateway/tests",
+]
 addopts = "-q" # quiet
 
 
 # Статическая проверка типов
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.13"
 warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unreachable = true
