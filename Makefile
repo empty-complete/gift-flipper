@@ -37,6 +37,6 @@ test:
 # Полный прогон проверок
 ci: fmt lint type test
 
-# Очистка кешей
+# Очистка кешей и окружения
 clean:
-	@rm -rf .pytest_cache .mypy_cache
+	@rm -rf .pytest_cache .mypy_cache .venv uv.lock
