@@ -1,5 +1,5 @@
  <p align="center">
-  <img src="https://i.ibb.co/Jw5k4K4R/logo-kinesis-circle.png" alt="Kinesis Logo" width="100">
+  <img src="https://i.ibb.co/wFWZ0rVR/Logo-gift-flipper.png" alt="Kinesis gift flipper Logo" width="100">
 </p>
 <h1 align="center">Gift Flipper <small>by kinesis</small></h1>
 <p align="center">
