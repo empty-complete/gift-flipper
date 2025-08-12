@@ -2,8 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: ["**"] # На любых ветках, пока нет других
   pull_request:
+    branches: ["**"]
 
 jobs:
   build:
@@ -16,7 +17,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
