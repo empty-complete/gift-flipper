@@ -8,3 +8,7 @@ def test_version_exists() -> None:
     import bot_gateway
 
     assert isinstance(bot_gateway.__version__, str)  # Должна быть строка
+
+
+def test_config_availability() -> None:
+    from bot_gateway.config.config import settings  # noqa: F401
