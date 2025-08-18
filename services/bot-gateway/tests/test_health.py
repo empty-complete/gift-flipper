@@ -12,3 +12,17 @@ def test_version_exists() -> None:
 
 def test_config_availability() -> None:
     from bot_gateway.config.config import settings  # noqa: F401
+
+
+def test_build_bot():
+    from bot_gateway.bot.factory import build_bot
+    from bot_gateway.config.config import settings
+
+    build_bot(settings=settings)  # Проверка сборки бота
+
+
+def test_build_dispatcher():
+    from bot_gateway.bot.factory import build_dispatcher
+    from bot_gateway.config.config import settings
+
+    build_dispatcher(settings=settings)  # Проверка сборки бота

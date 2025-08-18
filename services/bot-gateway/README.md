@@ -22,10 +22,11 @@
 
 ### bot-gateway/T1 — Инициализация & скелет (минимальный живой бот)
 
-- [ ] `pyproject.toml` с зависимостями: `aiogram`, `pydantic-settings`, `httpx`, `uvloop`, `pytest`, `pytest-asyncio`, `mypy`, `ruff`
-- [ ] `bot_gateway/config.py`: Pydantic Settings (+ загрузка `.env`)
+- [x] `pyproject.toml` с зависимостями: `aiogram`, `pydantic-settings`, `httpx`, `uvloop`, `pytest`, `pytest-asyncio`, `mypy`, `ruff`
+- [x] `bot_gateway/config.py`: ~~Pydantic Settings (+ загрузка `.env`)~~ Dynaconf (+загрузка `settings.toml` + `.secrets.toml` + `.example`)
 - [ ] `bot_gateway/logging.py`: корневой логгер, формат JSON/console, поле `request_id`
-- [ ] `bot_gateway/bot/factory.py`: сборка `Bot`, `Dispatcher`, регистрация роутеров
+- [x] `bot_gateway/bot/factory.py`: сборка `Bot`, `Dispatcher`, регистрация роутеров
+- [ ] `bot_gateway/bot/routers/`: регистрация роутеров
 - [ ] `bot_gateway/bot/routers/start.py`: хендлер `/start` (пока **без** API) → “Привет! Меню: /menu”
 - [ ] `bot_gateway/bot/routers/menu.py`: клавиатура (“Профиль”, “Фильтры” — пока заглушки)
 - [ ] `bot_gateway/main.py`: запуск polling
