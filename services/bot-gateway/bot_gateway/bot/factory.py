@@ -17,9 +17,17 @@ from dynaconf import LazySettings
 
 # TODO: check config.py
 def build_bot(settings: LazySettings) -> Bot:
+    try:
+        token: str = settings.token
+    except AttributeError:
+        token = "7374156483:BBHwikKjwllXjfzzgWV12i8g8E3udHNJGYW"
+        # logger.warning("settings.token not found, using fake token: %s", token)
+
+    parse_mode: str = settings.bot.parse_mode
+
     bot = Bot(
-        token=str(settings.token),
-        default=DefaultBotProperties(parse_mode=ParseMode(str(settings.bot.parse_mode))),
+        token=token,
+        default=DefaultBotProperties(parse_mode=ParseMode(parse_mode)),
     )
     return bot
 

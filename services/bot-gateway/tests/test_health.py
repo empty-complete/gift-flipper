@@ -14,15 +14,17 @@ def test_config_availability() -> None:
     from bot_gateway.config.config import settings  # noqa: F401
 
 
+# Тест: проверка сборки бота
 def test_build_bot():
     from bot_gateway.bot.factory import build_bot
     from bot_gateway.config.config import settings
 
-    build_bot(settings=settings)  # Проверка сборки бота
+    build_bot(settings=settings)
 
 
+# Тест: проверка сборки диспетчера
 def test_build_dispatcher():
     from bot_gateway.bot.factory import build_dispatcher
     from bot_gateway.config.config import settings
 
-    build_dispatcher(settings=settings)  # Проверка сборки бота
+    build_dispatcher(settings=settings)
