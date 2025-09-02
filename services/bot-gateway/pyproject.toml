@@ -1,6 +1,6 @@
 [project]
 name = "bot_gateway"
-version = "0.1.0"
+version = "0.5.0"
 description = "UI Telegram bot gateway"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -9,7 +9,8 @@ dependencies = [
 	"aiogram>=3.21.0",
 	"dynaconf>=3.2.11",
 	"httpx>=0.28.1",
-	"uvloop>=0.21.0"
+	"uvloop>=0.21.0",
+	"fluentogram>=1.2.1"
 ]
 
 [build-system]

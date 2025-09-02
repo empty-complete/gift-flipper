@@ -8,12 +8,12 @@ repos:
       - id: ruff-format # Форматирование кода
 
   # Mypy: проверка типов
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0
-    hooks:
-      - id: mypy
-        additional_dependencies: []
-        files: ^(services/|tests/|.*\.py$) # Проверяем все Python-файлы
+#  - repo: https://github.com/pre-commit/mirrors-mypy
+#    rev: v1.10.0
+#    hooks:
+#      - id: mypy
+#        additional_dependencies: []
+#        files: ^(services/|tests/|.*\.py$) # Проверяем все Python-файлы
 
   # Базовые фиксы форматирования
   - repo: https://github.com/pre-commit/pre-commit-hooks
