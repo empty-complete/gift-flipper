@@ -23,7 +23,7 @@
 ### bot-gateway/T1 — Инициализация & скелет (минимальный живой бот)
 
 - [x] `pyproject.toml` с зависимостями: `aiogram`, `pydantic-settings`, `httpx`, `uvloop`, `pytest`, `pytest-asyncio`, `mypy`, `ruff`
-- [x] `bot_gateway/config.py`: ~~Pydantic Settings (+ загрузка `.env`)~~ Dynaconf (+загрузка `settings.toml` + `.secrets.toml` + `.example`)
+- [x] `bot_gateway/config.py`: Pydantic Settings (+ загрузка `.env`) ~~Dynaconf (+загрузка `settings.toml` + `.secrets.toml` + `.example`)~~
 - [x] `bot_gateway/logging.py`: корневой логгер
 - [x] `bot_gateway/bot/factory.py`: сборка `Bot`, `Dispatcher`
 - [x] `bot_gateway/bot/routers/`: регистрация роутеров

@@ -1,6 +1,6 @@
 import logging
 from collections.abc import Awaitable, Callable
-from typing import Any
+from typing import Any, cast
 
 from aiogram import BaseMiddleware
 from aiogram.types import TelegramObject, User
@@ -16,12 +16,10 @@ class TranslatorRunnerMiddleware(BaseMiddleware):
         event: TelegramObject,
         data: dict[str, Any],
     ) -> Any:
-        user: User = data.get("event_from_user")
+        user: User = cast(User, data.get("event_from_user"))
 
-        if user is None:
-            return await handler(event, data)
-
-        hub: TranslatorHub = data.get("_translator_hub")
-        data["i18n"] = hub.get_translator_by_locale(locale=user.language_code)
+        hub: TranslatorHub = cast(TranslatorHub, data.get("_translator_hub"))
+        locale = user.language_code or getattr(hub, "default_locale", None) or "ru"
+        data["i18n"] = hub.get_translator_by_locale(locale=locale)
 
         return await handler(event, data)

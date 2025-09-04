@@ -6,8 +6,9 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
+from bot_gateway.config.settings import Settings
+
 # TODO: from bot_gateway.bot.middleware.request_id import RequestidMiddleware
-from dynaconf import LazySettings
 
 logger = logging.getLogger(__name__)
 
@@ -16,14 +17,9 @@ logger = logging.getLogger(__name__)
 # TODO: nats servers connection
 
 
-def build_bot(settings: LazySettings) -> Bot:
-    try:
-        token: str = settings.token
-    except AttributeError:
-        token = "7374156483:BBHwikKjwllXjfzzgWV12i8g8E3udHNJGYW"
-        logger.warning("settings.token not found, using fake token: %s", token)
-
-    parse_mode: str = settings.bot.parse_mode
+def build_bot(settings: Settings) -> Bot:
+    token: str = settings.telegram.token.get_secret_value()
+    parse_mode: str = settings.telegram.parse_mode
 
     bot = Bot(
         token=token,
@@ -34,11 +30,11 @@ def build_bot(settings: LazySettings) -> Bot:
     return bot
 
 
-def build_dispatcher(settings: LazySettings) -> Dispatcher:
+def build_dispatcher(settings: Settings) -> Dispatcher:
     # TODO: nats servers connection
     dp = Dispatcher(storage=None)  # TODO: nats storage
     return dp
 
 
-def build_app(settings: LazySettings) -> tuple[Bot, Dispatcher]:
+def build_app(settings: Settings) -> tuple[Bot, Dispatcher]:
     return build_bot(settings=settings), build_dispatcher(settings=settings)
