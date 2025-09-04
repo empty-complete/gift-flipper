@@ -1,7 +1,7 @@
 user-greeting =
     ⭐️ Привет, { $username }!
 
-    Я могу отслеживать подарки в <b>Telegram</b>-маркетплейсах <b><a href="https://t.me/Tonnel_Network_bot">Tonnel</a></b> и <b><a href="https://t.me/Tonnel_Network_bot">Portals</a></b> по твоим параметрам.
+    Я могу отслеживать подарки в <b>Telegram</b>-маркетплейсах <b><a href="https://t.me/Tonnel_Network_bot">Tonnel</a></b> и <b><a href="https://t.me/portals">Portals</a></b> по твоим параметрам.
 
     ⚙️ <b><u>Мои возможности:</u></b>
     • Мониторю маркетплейсы и нахожу выгодные лоты

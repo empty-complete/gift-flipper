@@ -13,4 +13,8 @@ router = Router()
 async def procces_start_command(message: Message, i18n: TranslatorRunner):
     # Добавил заглушку на user, так как если вызывавется в канале, то from_user отсутствует Optional[str]
     username = html.quote(message.from_user.full_name) if message.from_user else "John Doe"
-    await message.answer(text=i18n.user.greeting(username=username))
+    await message.answer_photo(
+        photo="https://i.ibb.co/gChf9ng/photo-2025-08-18-10-30-00.jpg",
+        caption=i18n.user.greeting(username=username),
+        show_caption_above_media=True,
+    )

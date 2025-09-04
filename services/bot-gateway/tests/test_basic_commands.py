@@ -4,7 +4,7 @@ import pytest
 from aiogram import html
 from aiogram.dispatcher.event.bases import UNHANDLED
 from aiogram.enums import ChatType
-from aiogram.methods import SendMessage
+from aiogram.methods import SendPhoto
 from aiogram.methods.base import TelegramType
 from aiogram.types import Chat, Message, Update, User
 
@@ -13,7 +13,7 @@ from aiogram.types import Chat, Message, Update, User
 @pytest.mark.parametrize("locale", ["ru", "en"])
 async def test_cmd_start(dp, bot, translator_hub, locale):
     bot.add_result_for(
-        method=SendMessage,
+        method=SendPhoto,
         ok=True,
     )
     chat = Chat(id=1234567, type=ChatType.PRIVATE)
@@ -27,7 +27,9 @@ async def test_cmd_start(dp, bot, translator_hub, locale):
     assert result is not UNHANDLED
     outgoing_message: TelegramType = bot.get_request()  # type: ignore # [6]
 
-    assert isinstance(outgoing_message, SendMessage)
+    assert isinstance(outgoing_message, SendPhoto)
     i18n = translator_hub.get_translator_by_locale(locale)
     # Здесь просто проверяем текст сообщения, которое отправил бот
-    assert outgoing_message.text == i18n.user.greeting(username=html.quote(user.first_name or ""))
+    assert outgoing_message.caption == i18n.user.greeting(
+        username=html.quote(user.first_name or "")
+    )
