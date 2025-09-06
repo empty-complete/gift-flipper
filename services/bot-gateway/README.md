@@ -27,10 +27,9 @@
 - [x] `bot_gateway/logging.py`: корневой логгер
 - [x] `bot_gateway/bot/factory.py`: сборка `Bot`, `Dispatcher`
 - [x] `bot_gateway/bot/routers/`: регистрация роутеров
-- [x] `bot_gateway/bot/routers/start.py`: хендлер `/start` (пока **без** API) → “Привет! Меню: /menu”
+- [x] `bot_gateway/bot/routers/start.py`: хендлер `/start` (пока **без** API) → “Привет!
 - [ ] `bot_gateway/bot/routers/menu.py`: клавиатура (“Профиль”, “Фильтры” — пока заглушки)
 - [x] `bot_gateway/main.py`: запуск polling
-- [ ] `Makefile`: `cd`
 
 ### bot-gateway/T2 — Корреляция и контекст пользователя
 
